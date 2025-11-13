@@ -1,3 +1,4 @@
+export type View = 'marketplace' | 'dashboard' | 'domainDetail' | 'aiGenerator';
 
 export interface PredictiveAnalytics {
   confidence: 'High' | 'Medium' | 'Low';
@@ -22,7 +23,7 @@ export interface Domain {
 }
 
 export interface SalesHistory {
-  name: string;
+  name:string;
   sales: number;
 }
 
@@ -48,18 +49,22 @@ export interface WordAnalysis {
     associations: string[];
 }
 
-export interface SimilarWord {
-    word: string;
-    popularityScore: number;
-    relationType: string;
-    exampleDomains: string[];
-    recommendedTlds: string[];
-}
-
 export interface WordCombination {
     domainName: string;
     tlds: string[];
     brandabilityScore: number;
     industry: string;
     availability: 'Likely Available' | 'Premium' | 'Taken';
+}
+
+export interface GeneratedDomainIdea {
+    domainName: string;
+    tlds: string[];
+    brandabilityScore: number;
+    context: string;
+}
+
+export interface DomainIdeasResult {
+    relatedWords: string[];
+    domainIdeas: GeneratedDomainIdea[];
 }
